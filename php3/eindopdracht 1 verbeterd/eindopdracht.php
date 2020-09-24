@@ -2,23 +2,24 @@
 <h1>Eindopdracht</h1>
 <?php
 
-  Class huis{
+  Class Huis{
 
       const BR ='<br>';
       public $Woz_Belasting = 0;
       public $Kamer_Belasting = 0;
       private $kamers = 16;
       private $toilets = 3;
+      private $vierkanteMeter = 400;
+      private $WOZ_Waarde = 400.000;
+      public  $totaal = 0;
       private $verwarming = "Vloerverwarming-Houtkachel";
       private $straat = "Veenakkers";
       private $huisnummer = "50";
       private $plaats = "Gieterveen";
-      private $vierkanteMeter = 400;
-      private $WOZ_Waarde = 400.000;
-      public  $totaal = 0;
 
       public function __construct(){
           $this->belasting();
+          $this->PrintAll();
       }
 
       public function belasting(){
@@ -50,7 +51,8 @@
           }
       }
 
-      public function __destruct(){
+      private function PrintAll()
+      {
           echo "Aantal kamers : ",$this->kamers.self::BR;
           echo "Aantal toilets : ",$this->toilets.self::BR;
           echo "Soorten verwarmingen : ",$this->verwarming.self::BR;
@@ -63,5 +65,6 @@
           echo "Totale kosten : ",$this->totaal.self::BR;
       }
   }
-  $Class = new huis;
+
+  $huisClass = new Huis;
 ?>
